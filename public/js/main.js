@@ -68,6 +68,16 @@ peer.on("open", (id) => {
   socket.emit("join-room", ROOM_ID, id);
 });
 
+const disconnectUser = () => {
+  socket.emit("disconnect");
+  // window.close();
+  // self.close();
+  // window.opener = window.location.href;
+  // self.close();
+  // window.open("about:blank", "_self");
+  // self.close();
+};
+
 const connectToNewUser = (userId, stream) => {
   const call = peer.call(userId, stream);
   const video = document.createElement("video");
